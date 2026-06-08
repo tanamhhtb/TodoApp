@@ -2,11 +2,12 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "5dec7041-8a46-44e7-8785-5ab35fbc1785"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "todo-ap": {
+    "Todoapp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -64,10 +65,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "todo-ap:build:production"
+              "buildTarget": "Todoapp:build:production"
             },
             "development": {
-              "buildTarget": "todo-ap:build:development"
+              "buildTarget": "Todoapp:build:development"
             }
           },
           "defaultConfiguration": "development"
