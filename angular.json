@@ -3,13 +3,18 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "5dec7041-8a46-44e7-8785-5ab35fbc1785"
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
-    "Todoapp": {
+    "TodoApp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "type": "component"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -19,6 +24,7 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -26,16 +32,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "security": {
-              "allowedHosts": []
-            },
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+              "src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
@@ -65,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Todoapp:build:production"
+              "buildTarget": "TodoApp:build:production"
             },
             "development": {
-              "buildTarget": "Todoapp:build:development"
+              "buildTarget": "TodoApp:build:development"
             }
           },
           "defaultConfiguration": "development"
