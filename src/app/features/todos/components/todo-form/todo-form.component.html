@@ -1,11 +1,14 @@
 <div class="flex gap-2 mb-6">
   <input
     pInputText
+    [(ngModel)]="title"
     placeholder="Add a todo..."
     class="flex-1"
+    (keyup.enter)="addTodo()"
   />
   <p-button
     label="Add"
     icon="pi pi-plus"
+    (onClick)="addTodo()"
   />
 </div>
