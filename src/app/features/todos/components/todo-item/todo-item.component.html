@@ -1,1 +1,20 @@
-<p>todo-item works!</p>
+<div class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 mb-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+
+  <p-checkbox [binary]="true" [ngModel]="todo.completed" (onChange)="toggle()" />
+
+  <span [hidden]="isEditing" class="flex-1 text-sm" [class.line-through]="todo.completed" [class.text-gray-400]="todo.completed">
+    {{ todo.title }}
+  </span>
+
+  <input [hidden]="!isEditing" pInputText class="flex-1 text-sm h-8" style="font-size: 0.9rem;" [(ngModel)]="editTitle" (keyup.enter)="saveEdit()" />
+
+  <span class="text-xs text-gray-400">
+    {{ todo.createdAt | date:'dd/MM/yyyy' }}
+  </span>
+
+  <p-button [hidden]="isEditing" icon="pi pi-pencil" [text]="true" size="small" severity="secondary" (onClick)="startEdit()" />
+  <p-button [hidden]="!isEditing" icon="pi pi-check" [text]="true" size="small" severity="success" (onClick)="saveEdit()" />
+
+  <p-button icon="pi pi-trash" [text]="true" size="small" severity="danger" (onClick)="delete()" />
+
+</div>

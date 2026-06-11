@@ -1,1 +1,7 @@
-<p>todo-list works!</p>
+<div>
+  @for (todo of todoService.todos(); track todo.id) {
+    <app-todo-item [todo]="todo" />
+  } @empty {
+    <p class="text-center text-gray-400 py-8">No todos yet.</p>
+  }
+</div>

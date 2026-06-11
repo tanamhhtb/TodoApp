@@ -13,12 +13,12 @@ import { TodoService } from '../../services/todo.service';
 })
 export class TodoFormComponent {
   private todoService = inject(TodoService);
-  title = '';
+  title: string = '';
 
   addTodo() {
-    if (this.title.trim()) {
-      this.todoService.add(this.title.trim());
-      this.title = '';
-    }
+  const trimmed = this.title.trim();
+  if (!trimmed) return;
+  this.todoService.add(trimmed);
+  this.title = '';
   }
 }
